@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="container form-group mt-3 border p-5 w-50">
+        <form action="/result" method="post">
+            {% csrf_token %}
+            Your Name: <input type="name" name="name">
+            <br><br>
+            <label for="location" class="label-group">Dojo Location: </label> 
+            <input type="radio" name="location" value="San Jose">
+            San Jose, CA
+            <input type="radio" name="location" value="Dallas">
+            Dallas, TX
+            <input type="radio" name="location" value="Houston">
+            Houston, TX
+            <input type="radio" name="location" value="Tulsa">
+            Tulsa, OK
+            <br><br>
+            Favourite Language:
+            <select name="language" id="language">
+                <option selected>Select One</option>
+                <option value="Javascript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="C++">C++</option>
+            </select>
+            <br><br>
+            <label for="comment" class="label-group">Comment (optional):</label>
+            <br>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <br>
+            <input type="submit" value="submit" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
